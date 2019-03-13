@@ -1,0 +1,25 @@
+{
+  "name": "TypeScript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/greeter.js",
+  "scripts": {
+    "build-ts": "tsc",
+    "start": "node ./dist/greeter.js",
+    "watch-ts": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanely/TypeScript_Practice.git"
+  },
+  "keywords": [],
+  "author": "Vanely Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vanely/TypeScript_Practice/issues"
+  },
+  "homepage": "https://github.com/vanely/TypeScript_Practice#readme",
+  "devDependencies": {
+    "ts-lint": "^4.5.1"
+  }
+}
