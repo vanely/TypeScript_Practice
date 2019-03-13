@@ -2,10 +2,10 @@
   "name": "TypeScript",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/greeter.js",
+  "main": "dist/functions.ts",
   "scripts": {
     "build-ts": "tsc",
-    "start": "node ./dist/greeter.js",
+    "start": "node ./dist/functions.js",
     "watch-ts": "tsc -w"
   },
   "repository": {

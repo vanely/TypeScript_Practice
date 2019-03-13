@@ -1,20 +1,4 @@
 //---------------
-/**@VARIABLES */
-//---------------
-let foo = 'foo';
-let num = 5;
-let cond = false;
-let obj = {};
-let nuthin;
-let notYet;
-//will search for key. If found, will return Symbol with this key.
-//Else it will be created and add the key to global registry.
-let symb1 = Symbol.for('123');
-//the key of a symbol created like this will not be stored in global registry.
-let symb2 = Symbol('456');
-console.log('search: ', Symbol.for('123'));
-console.log('key: ', Symbol.keyFor(symb1));
-//---------------
 /**@FUNCITONS */
 //---------------
 //type "function" can be defined when passing a function as a parameter for another function, by using a function signature
@@ -55,5 +39,15 @@ function addStrs(a, b) {
         console.log(`Error: parameter "a", and parameter "b" must be numbers in string format\n${Error.message}`);
     }
 }
-//a better approach to over loading in javascript, which reduces rewriting the function
-console.log(addStrs('12', '10'));
+//a better approach to over loading in javascript, which reduces rewriting the function is to define the parameters as type any
+function sumAny(a, b) {
+    const regExMatch = /\d/g;
+    if (typeof a === 'string' && a.match(regExMatch) !== null) {
+        a = Number(a.match(regExMatch).join(''));
+    }
+    if (typeof b === 'string' && b.match(regExMatch) !== null) {
+        b = Number(b.match(regExMatch).join(''));
+    }
+    return a + b;
+}
+console.log(`regEx any test: ${sumAny(30, 69)}`);
