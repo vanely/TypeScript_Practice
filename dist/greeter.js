@@ -22,11 +22,11 @@ console.log('key: ', Symbol.keyFor(symb1));
 function baz(fn) {
 }
 //func adding only numbers
-function sum(a, b) {
+function addNums(a, b) {
     return a + b;
 }
 //func adding strings and numbers
-function sum(a, b) {
+function addStrAndNum(a, b) {
     const regExMatch = /\d/g;
     try {
         if (a.match(regExMatch) !== null) {
@@ -41,7 +41,7 @@ function sum(a, b) {
     }
 }
 //func adding strings
-function sum(a, b) {
+function addStrs(a, b) {
     const regExMatch = /\d/g;
     try {
         if (a.match(regExMatch) !== null && b.match(regExMatch) !== null) {
@@ -55,4 +55,5 @@ function sum(a, b) {
         console.log(`Error: parameter "a", and parameter "b" must be numbers in string format\n${Error.message}`);
     }
 }
+//a better approach to over loading in javascript, which reduces rewriting the function
 console.log(addStrs('12', '10'));

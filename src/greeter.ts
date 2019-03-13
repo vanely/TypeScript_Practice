@@ -29,12 +29,12 @@ function baz(fn: () => void) {
 }
 
 //func adding only numbers
-function sum(a: number, b: number) {
+function addNums(a: number, b: number) {
   return a + b;
 }
 
 //func adding strings and numbers
-function sum(a: string, b: number) {
+function addStrAndNum(a: string, b: number) {
   const regExMatch: RegExp = /\d/g;  
   
   try {
@@ -51,7 +51,7 @@ function sum(a: string, b: number) {
 }
 
 //func adding strings
-function sum(a: string, b: string) {
+function addStrs(a: string, b: string) {
   const regExMatch: RegExp = /\d/g;
 
   try {
@@ -66,5 +66,7 @@ function sum(a: string, b: string) {
     console.log(`Error: parameter "a", and parameter "b" must be numbers in string format\n${Error.message}`);
   }
 }
+
+//a better approach to over loading in javascript, which reduces rewriting the function
 console.log(addStrs('12', '10'));
 
