@@ -39,15 +39,20 @@ function addStrs(a, b) {
         console.log(`Error: parameter "a", and parameter "b" must be numbers in string format\n${Error.message}`);
     }
 }
-//a better approach to over loading in javascript, which reduces rewriting the function is to define the parameters as type any
+//Definition
 function sumAny(a, b) {
     const regExMatch = /\d/g;
-    if (typeof a === 'string' && a.match(regExMatch) !== null) {
-        a = Number(a.match(regExMatch).join(''));
+    try {
+        if (typeof a === 'string' && a.match(regExMatch) !== null) {
+            a = Number(a.match(regExMatch).join(''));
+        }
+        if (typeof b === 'string' && b.match(regExMatch) !== null) {
+            b = Number(b.match(regExMatch).join(''));
+        }
     }
-    if (typeof b === 'string' && b.match(regExMatch) !== null) {
-        b = Number(b.match(regExMatch).join(''));
+    catch (Error) {
+        console.log(`Error: both parameters must either be, a 'number' or a number in 'string' format${Error.message}`);
     }
     return a + b;
 }
-console.log(`regEx any test: ${sumAny(30, 69)}`);
+console.log(`regEx any test: ${sumAny('30', 69)}`);

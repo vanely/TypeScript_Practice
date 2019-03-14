@@ -46,19 +46,30 @@ function addStrs(a: string, b: string) {
   }
 }
 
-//a better approach to over loading in javascript, which reduces rewriting the function is to define the parameters as type any
+//a better approach to over loading in javascript, is to separate the overload declaration from the overload definition.
+//Declaration
+function sumAny(a: string, b: number): number;
+function sumAny(a: number, b: string): number;
+function sumAny(a: number, b: number): number;
+function sumAny(a: string, b: string): number;
+//Definition
 function sumAny(a: any, b:any) {
   const regExMatch = /\d/g;
 
-  if (typeof a === 'string' && a.match(regExMatch) !== null) {
-    a = Number(a.match(regExMatch).join(''));
+  try{
+    if (typeof a === 'string' && a.match(regExMatch) !== null) {
+      a = Number(a.match(regExMatch).join(''));
+    }
+    if (typeof b === 'string' && b.match(regExMatch) !== null) {
+      b = Number(b.match(regExMatch).join(''));
+    }
   }
-  if (typeof b === 'string' && b.match(regExMatch) !== null) {
-    b = Number(b.match(regExMatch).join(''));
+  catch(Error) {
+    console.log(`Error: both parameters must either be, a 'number' or a number in 'string' format${Error.message}`);
   }
 
   return a + b;
 }
 
-console.log(`regEx any test: ${sumAny(30, 69)}`);
+console.log(`regEx any test: ${sumAny('30', 69)}`);
 
