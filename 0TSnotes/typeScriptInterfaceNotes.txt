@@ -1,0 +1,66 @@
+//when an object is defined in typescript. The properties that are created in the object during definition are the only properties that will ever exist in said object
+let person = {
+  firstName: "John",
+  lastName: "Doe"
+};
+
+//sayHi method will not appear even if we redifine the object
+//instead we get the following error
+/**
+* @ERROR Type '{ firstName: string; lastName: string; sayHi: () => void; }' is not assignable to type '{ firstName: string; lastName: string; }'
+* Object literal may only specify known properties, and 'sayHi' does not exist in type '{ firstName: string; lastName: string; }'.
+*/
+person = {
+  firstName: "John",
+  lastName: "Doe",
+  sayHi: function() {
+
+  }
+}
+
+//in typescript we are not allowed to add a property to an object in this way.
+/**@NOTE the datatype for an object is the shape(interface) that it is defined as. The exact structure of the properties inside */
+person.sayHi = function() {
+  alert('hi');
+}
+
+
+//======================================================
+
+
+/** @NOTE the way that objects behave in typescript are like classes in other Object Oriented Statically Typed Languages where once you create a class you can only create object instances of the what is available in the class. Not create entirely new entities in said class */
+
+let Person = {
+  firstName: "John",
+  lastName: "Doe",
+  sayHi: function () {
+
+  }
+};
+
+/** @NOTE the type of an object looks very much like an object literal. It's type is the entirety of the the properties defined within. While defining the type we can create new properties or leave some out and make them optional.*/
+//optional properties have a "?"(can be ommitted without side effects) at the end of the property
+function something(person: { firstName: string; lastName?: string; }) {
+  // person.sayHi();
+}
+
+//we can call the something function with the entire person obj since it is the only type that can be passed in.
+something(person);
+
+//or call it as an object and modify the values(adhering to same types) of the containing properties. We can even ommit some of the properties if we need to.
+something({
+  firstName: "Jane",
+})
+
+
+
+//---------------
+/**@INTERFACES */
+//---------------
+//using the above way of setting the type for an object isn't convenient. It can easiy become unmanagablea better way to create this object would be to define it as an interface
+
+interface IPerson {
+  firstName: string;
+  lastNam: string;
+  sayHi: () => void;
+}

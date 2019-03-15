@@ -72,4 +72,3 @@ function sumAny(a: any, b:any) {
 }
 
 console.log(`regEx any test: ${sumAny('30', 69)}`);
-

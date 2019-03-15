@@ -2,10 +2,10 @@
   "name": "TypeScript",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/functions.ts",
+  "main": "dist/main.ts",
   "scripts": {
     "build-ts": "tsc",
-    "start": "node ./dist/functions.js",
+    "start": "node ./dist/classes.js",
     "watch-ts": "tsc -w"
   },
   "repository": {
