@@ -5,7 +5,7 @@
   "main": "dist/main.ts",
   "scripts": {
     "build-ts": "tsc",
-    "start": "node ./dist/classes.js",
+    "start": "node ./dist/modules.js",
     "watch-ts": "tsc -w"
   },
   "repository": {

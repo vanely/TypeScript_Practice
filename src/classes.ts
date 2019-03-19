@@ -1,4 +1,4 @@
-class Persona {
+export default class Persona {
   
   //instead of declaring variables, followed by defining their value within a constructor. We could just pass them only into the constructor parameter, and use the public keyword to get the normal public usage that standard javaScript allows 
   // firstName: string;
@@ -39,15 +39,16 @@ class Persona {
   }
 }
 
-const JohnDoe = new Persona("John", "Doe");
-const JaneDoe = new Persona("Jane", "Doe");
+// const JohnDoe = new Persona("John", "Doe");
+// const JaneDoe = new Persona("Jane", "Doe");
 
-console.log(JohnDoe.sayHi());
-console.log(JaneDoe.sayHi("Jeremy"));
-console.log(JohnDoe.sayHi(JaneDoe));
+// console.log(JohnDoe.sayHi());
+// console.log(JaneDoe.sayHi("Jeremy"));
+// console.log(JohnDoe.sayHi(JaneDoe));
 
 /**
  * @NOTE javascript does not have privacy. So if we were to set the "fullName" getter function 
  * to private we would still be able to access it using the following object bracket syntax 
  */
 // alert(JohnDoe["fullName"]);
+
